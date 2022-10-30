@@ -29,7 +29,9 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    '~/plugins/vue-qrcode-component.js'
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -39,20 +41,32 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify',
+    '@nuxtjs/vuetify'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    'nuxt-socket-io'
+    'nuxt-socket-io',
+    '@nuxtjs/axios'
   ],
   io: {
     sockets: [{ // At least one entry is required
       name: 'main',
-      url: 'http://localhost:3002',
+      url: process.env.BROWSER_BASE_URL,
       default: true
     }]
     // Options
+  },
+  axios: {
+    baseURL: '/',
+    browserBaseUrl: process.env.BROWSER_BASE_URL,
+    headers: {
+      Accept: "application/json"
+    }
+  },
+  env:{
+    stellarReceiverAddress: process.env.STELLAR_RECEIVER_ADDRESS,
+    songPrice: process.env.SONG_PRICE
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

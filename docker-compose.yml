@@ -13,7 +13,7 @@ services:
     build: ./stellar-operations
     tty: true
     volumes:
-      - ./stellar-operations:/src
+      - ./stellar-operations/src:/nodeapp/src
     ports:
       - '3001:3000'
     environment:
