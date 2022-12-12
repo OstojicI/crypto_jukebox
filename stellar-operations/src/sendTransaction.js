@@ -41,7 +41,7 @@ server
             )
             // A memo allows you to add your own metadata to a transaction. It's
             // optional and does not affect how Stellar treats the transaction.
-            .addMemo(StellarSdk.Memo.text("test"))
+            .addMemo(StellarSdk.Memo.text("MEMO_CODE"))
             // Wait a maximum of three minutes for the transaction
             .setTimeout(180)
             .build();

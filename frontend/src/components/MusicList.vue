@@ -3,9 +3,9 @@
     @click:row="handleRowClick"
     :headers="headers"
     :items="songs"
-    :items-per-page="10"
-    class="elevation-1 blue lighten-2"
-    :dark="true"
+    :items-per-page="5"
+    :hide-default-footer="hidePagination"
+    class="row-pointer"
   >
     <template v-slot:top>
       <v-toolbar
@@ -30,6 +30,10 @@ export default {
       type: String,
       default: ''
     },
+    hidePagination: {
+      type: Boolean,
+      default: false
+    },
   },
   data() {
     return {
@@ -53,3 +57,9 @@ export default {
   }
 }
 </script>
+
+<style lang="css" scoped>
+.row-pointer >>> tbody tr :hover {
+  cursor: pointer;
+}
+</style>

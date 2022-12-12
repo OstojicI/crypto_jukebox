@@ -19,7 +19,7 @@
         <v-icon>{{ downloadIcon }}</v-icon>
       </v-btn>
       <v-slider v-model="playerVolume" :prepend-icon="volumeHighIcon" max="1" step="0.01" min="0"></v-slider>
-      <v-progress-linear v-model="percentage" height="5" style="margin-top: 15px; margin-bottom: 15px;" @click.native="setPosition()" :disabled="!loaded"></v-progress-linear>
+      <v-progress-linear :value="percentage" height="5" style="margin-top: 15px; margin-bottom: 15px;" :disabled="!loaded"></v-progress-linear>
       <p>{{ currentTime }} / {{ duration }}</p>
     </v-card-text>
     <audio class="pa-3" id="player" ref="player" v-on:ended="ended" v-on:canplay="canPlay" :src="file"></audio>

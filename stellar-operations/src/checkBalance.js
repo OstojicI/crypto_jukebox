@@ -5,7 +5,7 @@ var server = new StellarSdk.Server(process.env.STELLAR_SERVER);
 
 (async function () {
 
-  let publickey = 'TEST234';
+  let publickey = 'PUBLIC_KEY_OF_ACCOUNT';
 
 // the JS SDK uses promises for most actions, such as retrieving an account
   const account = await server.loadAccount(publickey);

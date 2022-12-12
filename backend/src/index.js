@@ -20,29 +20,13 @@ console.log('App initialized');
 
 io.on('connection', socket => {
   console.log(socket.id);
-  // console.log(socket);
   socket.on('chat message', (msg) => {
-    // console.log(socket.id);
-    // console.log('message: ' + msg);
+
   });
 
 });
 
 init().then(() => {
-  const onPayment = (async transaction => {
-    console.log(transaction)
-    const found = await getDbInstance().collection('transactions').findOne({code: transaction.memo, status: 'pending'});
-    if (transaction.amount <= process.env.SONG_PRICE || !found)
-      return;
-    io.emit('stellar', found);
-
-    await getDbInstance().collection('transactions').updateOne({_id: found._id}, {
-      $set: {
-        status: 'completed'
-      }
-    })
-    console.log(found, 'found');
-  })
   watchForPayments(onPayment);
 
   http.listen(port, () => {
@@ -50,3 +34,16 @@ init().then(() => {
   })
 })
 
+const onPayment = (async transaction => {
+  const found = await getDbInstance().collection('transactions').findOne({code: transaction.memo, status: 'pending'});
+  if (transaction.amount <= process.env.SONG_PRICE || !found)
+    return;
+  io.emit('stellar', found);
+
+  await getDbInstance().collection('transactions').updateOne({_id: found._id}, {
+    $set: {
+      status: 'completed'
+    }
+  })
+  console.log(found, 'found');
+})
