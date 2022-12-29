@@ -22,7 +22,7 @@ const init = async () => {
 const createTransaction = async (item) => {
   const collection = db.collection('transactions')
   let obj = {
-    code: crypto.randomBytes(8).toString('hex'),
+    code: crypto.randomBytes(10).toString('hex'),
     status: 'pending',
     song_id: parseInt(item.song_id),
     amount: item.amount,

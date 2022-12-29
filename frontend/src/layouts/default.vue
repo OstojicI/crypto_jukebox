@@ -1,43 +1,45 @@
 <template>
   <v-app dark>
     <v-main class="bg-img">
-      <v-container>
-        <v-list color="transparent" class="d-flex justify-end">
-            <v-list-item-group class="d-flex">
-              <v-list-item target="_blank" href="https://www.linkedin.com/in/ivan-ostoji%C4%87-5b29a9189/">
-                <v-list-item-icon>
-                  <v-icon
-                    large
-                  >
-                    mdi-linkedin
-                  </v-icon>
-                </v-list-item-icon>
-                <h3>Linkedin</h3>
-              </v-list-item>
-              <v-list-item target="_blank" href="https://github.com/OstojicI">
-                <v-list-item-icon>
-                  <v-icon
-                    large
-                  >
-                    mdi-github
-                  </v-icon>
-                </v-list-item-icon>
-                <h3>Github</h3>
-              </v-list-item>
-              <v-list-item target="_blank" href="https://ivanostojic.medium.com/">
-                <v-list-item-icon>
-                  <img src="@/assets/images/icons8-medium (3).svg" width="36" alt="">
-                </v-list-item-icon>
-                <h3>Medium</h3>
-              </v-list-item>
-            </v-list-item-group>
-        </v-list>
+      <v-app-bar
+        color="transparent"
+        dark
+      >
+        <v-app-bar-nav-icon v-if="isMobile" @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      </v-container>
-
+        <v-container v-if="!isMobile">
+          <Nav></Nav>
+        </v-container>
+      </v-app-bar>
+      <v-navigation-drawer
+        v-model="drawer"
+        absolute
+        temporary>
+        <Nav :vertical="isMobile"></Nav>
+      </v-navigation-drawer>
       <v-container>
         <Nuxt/>
       </v-container>
+      <div class="pa-5 d-flex flex-column flex-sm-row justify-center align-center col-12 col-sm-4 ma-auto">
+        <v-btn
+          class="mx-5"
+          outlined
+          large
+          height="60"
+          width="100%"
+        >
+          <strong>SOURCE CODE</strong>
+        </v-btn>
+        <v-btn
+          outlined
+          large
+          height="60"
+          width="100%"
+        >
+          <strong>MEDIUM ARTICLE</strong>
+        </v-btn>
+      </div>
+
     </v-main>
   </v-app>
 </template>
@@ -53,9 +55,20 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'Vuetify.js',
+      group: null
     }
-  }
+  },
+  computed: {
+    isMobile() {
+      return this.$vuetify.breakpoint.xs;
+    }
+  },
+  // watch: {
+  //   group () {
+  //     this.drawer = false
+  //   },
+  // },
 }
 </script>
 

@@ -3,7 +3,7 @@
     @click:row="handleRowClick"
     :headers="headers"
     :items="songs"
-    :items-per-page="5"
+    :items-per-page="6"
     :hide-default-footer="hidePagination"
     class="row-pointer"
   >
@@ -41,7 +41,7 @@ export default {
         {
           text: 'Song name',
           align: 'start',
-          sortable: false,
+          sortable: true,
           value: 'name',
         },
         {text: 'Author', value: 'author'},

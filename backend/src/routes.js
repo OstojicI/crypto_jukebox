@@ -9,7 +9,6 @@ router.get('/', (req, res) => {
 
 router.post('/transactions', async (req, res) => {
   const transaction = req.body;
-  console.log(transaction);
   return res.json(await createTransaction(transaction));
 })
 

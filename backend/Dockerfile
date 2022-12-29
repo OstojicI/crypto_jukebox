@@ -9,5 +9,3 @@ RUN npm install && mv /nodeapp/src/node_modules /nodeapp/node_modules
 COPY /src /nodeapp/src
 
 EXPOSE 3000
-
-CMD npm start
