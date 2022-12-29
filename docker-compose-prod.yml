@@ -9,6 +9,8 @@ services:
     ports:
       - '8080:80'
     tty: true
+    volumes:
+      - ./frontend/src/dist:/usr/share/nginx/html
   backend:
     build: ./backend
     restart: unless-stopped
