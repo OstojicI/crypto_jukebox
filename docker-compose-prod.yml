@@ -22,7 +22,7 @@ services:
       - APP_PORT=3000
     command: npm run start
   mongo:
-    image: mongo
+    image: mongo:5
     restart: unless-stopped
     ports:
       - "27017:27017"
