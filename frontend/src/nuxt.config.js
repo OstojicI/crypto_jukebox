@@ -52,19 +52,18 @@ export default {
   io: {
     sockets: [{ // At least one entry is required
       name: 'main',
-      url: process.env.BROWSER_BASE_URL,
+      url: process.env.API_BACKEND_URL,
       default: true
     }]
     // Options
   },
   axios: {
-    baseURL: '/',
-    browserBaseUrl: process.env.BROWSER_BASE_URL,
+    baseURL: process.env.API_BACKEND_URL,
     headers: {
       Accept: "application/json"
     }
   },
-  env:{
+  env: {
     stellarReceiverAddress: process.env.STELLAR_RECEIVER_ADDRESS,
     songPrice: process.env.SONG_PRICE
   },
