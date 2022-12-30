@@ -27,8 +27,7 @@ services:
       - mongo
     environment:
       - APP_PORT=3000
-    command:
-      - npm run dev
+    command: npm run dev
   mongo:
     image: mongo
     restart: unless-stopped
