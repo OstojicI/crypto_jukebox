@@ -22,6 +22,8 @@
       </v-container>
       <div class="pa-5 d-flex flex-column flex-sm-row justify-center align-center col-12 col-sm-4 ma-auto">
         <v-btn
+          target="_blank"
+          href="https://github.com/OstojicI/crypto_jukebox"
           class="mx-5"
           outlined
           large
@@ -31,6 +33,8 @@
           <strong>SOURCE CODE</strong>
         </v-btn>
         <v-btn
+          target="_blank"
+          href="https://ivanostojic.medium.com/open-source-jukebox-accepting-crypto-payments-stellar-xlm-node-js-a0a00994cf90"
           outlined
           large
           height="60"
