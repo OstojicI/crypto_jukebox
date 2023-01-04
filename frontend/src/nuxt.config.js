@@ -9,7 +9,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - frontend',
+    titleTemplate: '%s',
     title: 'Crypto jukebox',
     htmlAttrs: {
       lang: 'en'
