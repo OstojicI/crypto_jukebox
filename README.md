@@ -3,7 +3,7 @@
 Crypto jukebox is a web application for ordering songs using cryptocurrencies (Stellar XLM).
 This application was made for education purposes. First of all to learn about simplicity of crypto payments and secondly to get familiar with Stellar SDK.
 
-[**Website**](http://crypto-jukebox.live/)
+[**Website**](https://crypto-jukebox.com/)
 
 [**Medium article**](https://ivanostojic.medium.com/open-source-jukebox-accepting-crypto-payments-stellar-xlm-node-js-a0a00994cf90)
 
